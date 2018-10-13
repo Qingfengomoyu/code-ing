@@ -1,0 +1,45 @@
+<image src="../../images/day.png" class="bg"></image>
+
+<!-- <view class="content"> -->
+  <view class="container">
+    <!--显示当天的天气信息-->
+    <view class="info">
+      <!--城市名称 当前日期-->
+      <view class="city">{{city}} ({{today}})</view>
+      <!--当天温度-->
+      <view class="temp">{{weather.weather}}  {{weather.temperature}}</view> 
+               <!--调用的api不同时天气的字段不一样  -->
+               <!-- <view class="info">{{weather.weatherDesc}}</view>  -->
+      <view class="weather">{{suggestion}}</view>
+      <view class="weather">{{weather.wind}}{{'| pm25:'}}{{pm25}}</view>
+    </view>
+
+  </view>
+    
+  
+
+
+  <view wx:key="{{index}}" wx:for="{{forecast}}" >
+    <view class=" hor forecast" >
+      <view class="center">{{item.date}}</view>
+      <view class="hor">
+        <!-- <image class="img" src='../../images/icons/{{item.weather}}.png'></image> -->
+        <!-- 图片加载api中的url -->
+        <image class="img" src="{{item.dayPictureUrl}}" mode="aspectFill"></image>
+        <image class="img" src="{{item.nightPictureUrl}}" mode="aspectFill"></image>
+        <view class="center">{{item.weather}}</view>
+      </view>
+      <view class="center">{{'|'}}{{item.temperature}}</view>
+    </view>
+  </view> 
+
+    <!--搜索天气-->
+    <view class="search-area"> 
+      <input bindinput="inputing" placeholder="请输入城市名称" 
+          value="{{inputCity}}" />
+      <button type="primary" size="mini" bindtap="bindSearch">查询</button>
+    </view>
+   <view class="address">{{'当前位置:'}}{{address}}</view>
+  
+  
+<!-- </view> -->

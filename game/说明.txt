@@ -1,0 +1,2 @@
+simple_airplane_war对应feiji图片集，其他的文件对应images，是两个分开的小程序
+需要依赖pygame第三方包
